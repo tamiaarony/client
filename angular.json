@@ -68,7 +68,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "speech-to-text:build"
+            "browserTarget": "speech-to-text:build",
+            "proxyConfig": "src/proxy.config.json"
           },
           "configurations": {
             "production": {
@@ -127,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "speech-to-text"
+  "defaultProject": "speech-to-text",
+  "cli": {
+    "analytics": "180b576d-e619-450b-9401-3e769179b704"
+  }
 }
