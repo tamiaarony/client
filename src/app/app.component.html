@@ -4,10 +4,7 @@
     
     <p><button id="start" (click)="startCapture()">Start Capture</button>&nbsp;<button id="stop" (click)="stopCapture()">Stop Capture</button></p>
     
-    <video #video id="video" autoplay></video>
-    <br>
-    
-    <strong>Log</strong>
-    <br>
-    <pre id="log"></pre>
+    <video #video id="video" autoplay [muted]="true"></video><br>
+
+    <audio  #audio  ></audio>
 <router-outlet></router-outlet>
