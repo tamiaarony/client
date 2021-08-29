@@ -5,6 +5,8 @@ const routes: Routes = [
   {path:"load-video/:stream",  loadChildren: () => import("./modules/load-video/load-video.module").then(m => m.LoadVideoModule)}
 ];
 
+
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -3,8 +3,6 @@ import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { ElementRef, ViewChild } from '@angular/core';
 import { loadvideoservice } from './modules/load-video/load-video-service';
 /*ניסיון העלאה לגיט*/
-/*ניסיון העלאה לגיט*/
-/*ניסיון העלאה לגיט*/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
