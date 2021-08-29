@@ -1,5 +1,5 @@
 <h1>Hello</h1>
-<a routerLink="/load-video">load video</a>
+<!-- <a *ngIf="streamNode" routerLink="/load-video/{{streamtrack}}">load video</a> -->
 <!-- <video id="video" autoplay></video> -->
     
     <p><button id="start" (click)="startCapture()">Start Capture</button>&nbsp;<button id="stop" (click)="stopCapture()">Stop Capture</button></p>
@@ -8,3 +8,5 @@
 
     <audio  #audio  ></audio>
 <router-outlet></router-outlet>
+<!-- <app-loapad-video *ngIf="streamNode" [stream]="streamNode.stream.getAudioTracks()"></app-load-video> -->
+<app-load-video *ngIf="streamNode" [stream]="streamNode.stream.getAudioTracks()"></app-load-video>

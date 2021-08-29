@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Type } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { ElementRef, ViewChild } from '@angular/core';
 import { loadvideoservice } from './modules/load-video/load-video-service';
-
+/*ניסיון העלאה לגיט*/
+/*ניסיון העלאה לגיט*/
+/*ניסיון העלאה לגיט*/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +12,7 @@ import { loadvideoservice } from './modules/load-video/load-video-service';
 })
 export class AppComponent {
   title = 'speech-to-text';
+  title1 = 'speech-to-text';
   constructor(){
    
     this.nav = navigator;
@@ -23,6 +26,7 @@ export class AppComponent {
   audioCtx:any;
   streamNode:any;
   source:any;
+  streamtrack:any;
 dumpOptionsInfo() {
   const videoTrack = this.videoElem.srcObject.getVideoTracks()[0];
   console.info("Track settings:");
@@ -45,6 +49,9 @@ dumpOptionsInfo() {
     this.audioElem.controls = true;
     document.body.appendChild(this.audioElem);
     this.audioElem.srcObject = this.streamNode.stream;
+    this.streamtrack=this.streamNode.stream.getAudioTracks();
+    // console.log(this.streamNode.stream.getAudioTracks())
+    // console.log(this.streamNode.stream)
     this.dumpOptionsInfo();
   } catch(err) {
     console.error("Error: " + err);

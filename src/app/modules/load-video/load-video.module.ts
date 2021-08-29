@@ -6,7 +6,7 @@ import { LoadvideoRoutingModule } from './load-video-routing.module';
 
 
 @NgModule({
-  declarations: [LoadVideoComponent],
+  declarations: [],
   imports: [
     CommonModule,
     LoadvideoRoutingModule

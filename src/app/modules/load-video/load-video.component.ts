@@ -1,6 +1,7 @@
+import { Input } from '@angular/core';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Event } from '@angular/router';
+import { ActivatedRoute, Event } from '@angular/router';
 import { loadvideoservice } from './load-video-service';
 @Component({
   selector: 'app-load-video',
@@ -9,15 +10,12 @@ import { loadvideoservice } from './load-video-service';
 })
 
 export class LoadVideoComponent implements OnInit {
-
-  url:any='https://www.youtube.com/watch?v=r0sS66mVoas';
+  @Input()
+  stream:any;
   displayURL?:any;
   Text?:string
-  constructor(private _loadservice:loadvideoservice,private sanitizer: DomSanitizer) { 
-    this.displayURL = sanitizer.bypassSecurityTrustResourceUrl(this.url);
-    // this._loadservice.getTranscrire(this.url).subscribe(data=>{
-    //   this.Text=data
-    // })
+  constructor(private _loadservice:loadvideoservice,private sanitizer: DomSanitizer,private _act:ActivatedRoute) { 
+    // this.displayURL = sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
   getVideoTag(file:any) {
     return this.sanitizer.bypassSecurityTrustHtml(
@@ -40,6 +38,22 @@ export class LoadVideoComponent implements OnInit {
   //   }
   // }
   ngOnInit(): void {
+    // this._act.paramMap.subscribe(params=>{
+    //   if(params.has("stream"))
+    //   {
+    //     this.stream=params.get("stream")!;
+    //     console.log(typeof(this.stream))
+    //     this._loadservice.getTranscrire(this.stream).subscribe(data=>{
+    //       this.Text=data
+    //     })
+    //   }
+    // })
+    if(this.stream){
+      console.log(typeof(this.stream))
+          this._loadservice.getTranscrire(this.stream).subscribe(data=>{
+            this.Text=data
+          })
+    }
   }
 
 }
